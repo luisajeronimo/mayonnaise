@@ -1,17 +1,17 @@
 <!--
 Sync Impact Report — temporary review material; remove before committing.
-Version change: 2.0.0 → 3.0.0.
-Reason: the owner explicitly requested resolution of the existing Spotify Premium
-dependency after confirming the personal subscription is already held.
-This is a major version because principle II's blanket prohibition on mandatory paid
-plans is relaxed for one named external prerequisite.
-Modified principle: II. Zero-Cost Infrastructure → II. Zero-Cost Infrastructure
-(title unchanged; one narrow existing-subscription exception added).
+Version change: 3.0.0 → 4.0.0.
+Reason: the owner requested initial administrator provisioning without an application
+invitation, avoiding a circular dependency and an unnecessary public setup flow.
+This is a major version because principle IV's universal invitation requirement gains
+one exception for the first administrator of an installation.
+Modified principle: IV. Security by Design → IV. Security by Design
+(title unchanged; restricted initial-administrator bootstrap exception added).
 Added sections: none.
 Removed sections: none.
-Other principles, invitation-only membership, and private-sharing obligations: unchanged.
-Dependent artifact impact: reconcile the active feature's constitution reference and
-DP-01 in the accompanying clarification workflow; templates and commands remain unchanged.
+Other principles, ordinary invitation-only membership and private-sharing obligations: unchanged.
+Dependent artifact impact: reconcile initial-admin activation, operator prerequisites,
+permission checks and bootstrap tests in the active feature. Templates remain unchanged.
 Deferred TODOs: none.
 -->
 
@@ -104,8 +104,13 @@ Every read, write, and event subscription MUST check authorization in a trusted 
 on the server or in the database. Hiding interface controls MUST NOT be used as access
 control. Activated participants may access data and perform actions only as explicitly
 permitted by the approved sharing model. Membership MUST require a private invitation
-and a single-use code to activate an account; the product MUST NOT impose a two-participant
-business limit.
+and a single-use code to activate an account, except for the first administrator of an
+installation. That administrator MUST be provisioned by a trusted infrastructure operator
+against an explicitly selected, verified identity from the authentication provider,
+without a Mayonnaise invitation. Bootstrap MUST be restricted to initial setup, auditable
+and safe to retry for the same identity. It MUST NOT expose a public setup route, assign
+privileges to the first signup, or grant invitation-free activation to subsequent accounts.
+The product MUST NOT impose a two-participant business limit.
 
 Privileged credentials MUST remain outside versioned code, client bundles, logs, and PWA
 caches. Data received from clients MUST be validated at the trust boundary. The project
@@ -118,9 +123,13 @@ MUST limit data collection and exposure to what is necessary.
 - Tests MUST demonstrate that anonymous access, inactive accounts, expired sessions,
   unauthorized third parties, and attempts to change identifiers to access or modify another
   user's data are blocked.
-- Activation tests MUST reject missing, invalid, and previously consumed invitation codes.
+- Invitation-based activation tests MUST reject missing, invalid, and previously consumed codes.
   Concurrent redemption of one code MUST activate at most one account. Account activation
   MUST NOT prevent a third participant from joining with a separate valid invitation.
+- Bootstrap tests MUST prove that only the explicitly selected, verified initial identity
+  receives administrative authority, without issuing or consuming an invitation. A retry
+  MUST NOT create another account; a different identity or ordinary application caller
+  MUST NOT obtain activation or privileges through bootstrap after initial setup.
 - Isolation MUST cover queries, writes, real-time events, and caches; logout MUST prevent
   the next session from viewing private data from the previous session.
 - Review MUST verify input validation, secure transport, session handling, and the absence
@@ -252,7 +261,8 @@ The project MUST NOT create generic structures without demonstrated current use.
 ## MVP Scope and Constraints
 
 The MVP serves authenticated participants who join through private invitations and activate
-an account using a single-use code. There is no two-participant business limit. Expected
+an account using a single-use code, with only the restricted first-administrator bootstrap
+exception defined in principle IV. There is no two-participant business limit. Expected
 membership capacity MUST be documented during planning against free infrastructure limits
 and external provider eligibility; these constraints MUST NOT be misrepresented as a fixed
 two-person product rule. Rating, ownership, and sharing rules MUST be defined in specifications;
@@ -307,6 +317,9 @@ On 2026-11-19, the owner explicitly replaced the two-participant assumption with
 single-use invitation activation; version 2.0.0 records that approved correction.
 On 2026-11-19, the owner requested the narrow existing personal Spotify Premium exception;
 version 3.0.0 records that approved amendment without authorizing new project spending.
+On 2026-11-20, the owner requested trusted initial administrator provisioning without
+an application invitation. Version 4.0.0 limits this exception to the first administrator;
+all subsequent accounts retain invitation activation and existing audience restrictions.
 Future changes MUST preserve the ratification date and update the amendment date.
 
 Versioning MUST follow `MAJOR.MINOR.PATCH`:
@@ -323,4 +336,4 @@ the amendment procedure; a plan, review comment, or isolated technical decision 
 authorize noncompliance. When an amendment affects ongoing work, the corresponding artifacts
 and checks MUST be updated before the next delivery.
 
-**Version**: 3.0.0 | **Ratified**: 2026-11-18 | **Last Amended**: 2026-11-19
+**Version**: 4.0.0 | **Ratified**: 2026-11-18 | **Last Amended**: 2026-11-20

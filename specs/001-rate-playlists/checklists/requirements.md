@@ -1,73 +1,67 @@
-# Specification Quality Checklist: Mayonnaise — Spotify Playlists
+# Specification Quality Checklist: Mayonnaise — Playlists, Albums and Group Rankings
 
-**Purpose**: Verify specification completeness and quality before planning.
-**Created**: 2026-11-18
+**Purpose**: Validate functional completeness and approved scope before implementation.
+**Reviewed**: 2026-11-20
 **Feature**: [spec.md](../spec.md)
-
-**Review Ownership**: Requirements-quality checklist reviewed during `$speckit-specify`.
-Each mark represents a documentation review.
-**Marker Semantics**: `[x]` indicates a reviewed and satisfied documentation criterion;
-it does not mean a feature has been implemented or an application test has been executed.
+**Evidence**: [change-impact.md](../change-impact.md), [import-feasibility.md](../import-feasibility.md).
 
 ## Content Quality
 
-- [x] CHK001 No implementation details (languages, frameworks, APIs).
-- [x] CHK002 Focused on user value and business needs.
-- [x] CHK003 Written for non-technical stakeholders.
-- [x] CHK004 All mandatory sections completed.
+- [x] No implementation details in functional behavior requirements
+- [x] Focused on user value and business needs
+- [x] Written for non-technical stakeholders
+- [x] All mandatory sections completed
 
 ## Requirement Completeness
 
-- [x] CHK005 No clarification markers remain.
-- [x] CHK006 Requirements are testable and unambiguous.
-- [x] CHK007 Success criteria are measurable.
-- [x] CHK008 Success criteria are technology-agnostic (no implementation details).
-- [x] CHK009 All acceptance scenarios are defined.
-- [x] CHK010 Edge cases are identified.
-- [x] CHK011 Scope is clearly bounded.
-- [x] CHK012 Dependencies and assumptions identified.
+- [x] No unresolved primary clarification markers
+- [x] Requirements are testable and unambiguous
+- [x] Success criteria are measurable
+- [x] Success criteria describe observable behavior rather than implementation mechanisms
+- [x] Acceptance scenarios are defined
+- [x] Edge cases are identified
+- [x] Scope is clearly bounded
+- [x] Dependencies and disclosed assumptions are identified
 
 ## Feature Readiness
 
-- [x] CHK013 All functional requirements have clear acceptance criteria.
-- [x] CHK014 User scenarios cover primary flows.
-- [x] CHK015 Feature meets measurable outcomes defined in Success Criteria.
-- [x] CHK016 No implementation details leak into specification.
+- [x] Functional requirements have acceptance criteria
+- [x] User scenarios cover primary flows
+- [x] Measurable outcomes cover the approved feature scope
+- [x] Technical source/stack evidence is separated into planning artifacts
 
-## Notes
+## Review Notes
 
-- Final review: 16 of 16 documentation criteria satisfied after incorporating the responses.
-  Seven prioritized stories, 34 functional requirements, and 12 measurable criteria were
-  verified. No clarification markers remain in the functional content.
-- The requester confirmed decisions on the scale, rounding, repeated tracks, and incompatible
-  items, recorded in D-009 through D-011. They replace the initial review's proposals.
-- Spotify references define a requested integration and its external constraints without
-  selecting endpoints, protocols, languages, frameworks, or code structure.
-- Measurable outcomes are acceptance targets, not claims of completed implementation.
-  CHK015 verifies that the requirements allow those outcomes to be assessed.
-- **Governance issue DP-01:** the requester already has Premium, but principle II still
-  prohibits mandatory dependencies on paid plans. This condition has been made explicit
-  without amending the constitution or approving an exception in this specification.
-- **Next phase:** the functional content is prepared for `$speckit-plan`, whose approval
-  depends on resolving DP-01 through constitutional review or another compatible decision.
-  `$speckit-clarify` may be used if additional, unapproved policies are added to the scope.
-  Editing/deletion, intentional resubmission, feed ordering, text limits, and version auditing
-  have not been invented as mandatory rules.
+Documentation-quality review only. No checkmark claims completed application, real
+provider access, invitation delivery, RLS/Realtime, mobile or acceptance execution.
 
-Documentation traceability used in the review:
-
-| Requirements | Acceptance evidence in the specification | Related outcomes |
-| --- | --- | --- |
-| FR-001 through FR-004 | Story 1, scenarios 1 through 4 | SC-001 |
-| FR-005 through FR-008 | Story 2, scenarios 1 through 3, 6, and 7; import failures in Edge Cases | SC-002, SC-003, SC-012 |
-| FR-009 and FR-010 | Story 2, scenarios 1 and 4 | SC-002, SC-007 |
-| FR-011 | Story 2, scenario 5 | SC-010 |
-| FR-012 through FR-018 | Story 3, scenarios 1 through 8 | SC-004 |
-| FR-019 and FR-020 | Story 5, scenarios 1 through 4 | SC-007 |
-| FR-021 through FR-024 | Story 4, scenarios 1 through 4 | SC-005, SC-009 |
-| FR-025 and FR-026 | Story 6, scenarios 1 through 4 | SC-006 |
-| FR-027 and FR-028 | Story 7, scenarios 1 through 4 | SC-008, SC-011 |
-| FR-029 | Story 1, scenarios 2 and 4; Story 5, scenario 5; malicious content in Edge Cases | SC-001, SC-011 |
-| FR-030 | Story 2, scenario 8; official Spotify dependencies | SC-002 |
-| FR-031 and FR-032 | Story 2, scenarios 6 and 7 | SC-012 |
-| FR-033 and FR-034 | Story 3, scenarios 1 through 4, 7, and 8; Story 4, scenario 4 | SC-004, SC-009 |
+- Current scope has9 prioritized stories,88 unique functional requirements and 45
+  outcomes. The requester confirmed no old Spotify app and explicitly approved VIP-only
+  connected playlist submission plus Normal/VIP non-linked album import. Normal retains
+  received-playlist review; no unauthorized source fallback is added.
+- The first-100 boundary now applies to catalog albums before exclusions. Connected
+  playlists retain full scope; cutoff/unknown counts/metadata and duplicate occurrences
+  remain explicit.
+- Track mean/manual score/group mean are separate; group rankings use recorded manual
+  scores, exclude missing/include zero, and show three highlighted slots.
+- A-01–A-09 remain disclosed reviewable defaults, not invented requester answers. No
+  hidden deletion, vote weighting, role-management or provider-access feature is added.
+- Official template sections and decision history remain. Current plan/model/contracts/
+  quickstart reconcile the approved scope; research records source resolution and exact
+  dependency-probe limits.
+- The 136-task list is regenerated with 51 parallel opportunities, valid task labels/
+  dependencies and explicit implementation citations for all 185 canonical fields.
+  Post-analysis corrections reconcile constitution v4.0.0 initial-admin bootstrap,
+  failed-login state preservation, VIP-only playlist submission, canonical identity
+  vectors and the exact SMTP status/outcome enum. The subsequent owner-approved username
+  correction replaces printable Unicode names with unique @handles using ASCII letters/
+  digits only, fixed lowercase and no special characters/spaces. Email rules are separate.
+  There are134 acceptance scenarios;
+  the task count/IDs and185 canonical fields remain unchanged.
+  This is traceability validation, not task execution;
+  all constitutional release obligations remain binding.
+- Owner-approved analysis remediation resolves I1 by assigning browser discovery and
+  playlist-submission denial to US2 rather than the US1 access checkpoint. It resolves
+  U1 by explicitly sharing the exclusion-reason catalog and NULL/eligibility rules
+  between staging and publication, with decoder/SQL checks in the existing tasks.
+  No requirement, task ID, dependency, canonical field citation or MVP scope is removed.

@@ -1,0 +1,32 @@
+/* Figma-derived reference roles, inspected 2026-11-20.
+ * Source nodes, coverage, and adaptations: ../design-reference.md.
+ * These semantic names are repository mappings, not Figma variable identifiers.
+ * Prototype dimensions do not impose fixed mobile layout sizes.
+ */
+:root {
+  color-scheme: dark;
+
+  --color-canvas: #121212;
+  --color-surface: #252525;
+  --color-surface-inset: #1c1b1b;
+  --color-surface-raised: #2a2a2a;
+  --color-neutral-subtle: #393939;
+  --color-text: #ffffff;
+  --color-text-muted: #b8b8b8;
+  --color-primary: #ffade5;
+  --color-on-primary: #121212;
+  --color-icon-on-primary: #5e0051;
+  --color-accent: #eaea32;
+  --color-on-accent: #323200;
+  --color-surface-tonal: #231a20;
+  --color-text-tonal: #d7c0cd;
+  --color-success: #7dff95;
+  --color-danger: #ffb4ab;
+  --color-primary-subtle: rgb(255 173 229 / 10%);
+  --color-header-overlay: rgb(18 18 18 / 85%);
+  --color-navigation-overlay: rgb(14 14 14 / 90%);
+
+  --font-display: 'Space Grotesk', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'Space Mono', monospace;
+}
